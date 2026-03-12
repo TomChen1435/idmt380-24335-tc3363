@@ -1,0 +1,152 @@
+/* Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+*:not(dialog) {
+    margin: 0;
+}
+
+/* Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords;
+    }
+}
+
+/* Improve text rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Improve media defaults */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Create a root stacking context */
+#root, #__next {
+    isolation: isolate;
+}
+
+/* Inherit fonts for form controls */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* Body text needs to be: */
+p {
+    /* At least 16px */
+    font-size: 1.125rem;
+    /* Within 45-75 characters long per line */
+    max-width: 65ch;
+
+    /* Improve line wrapping */
+    text-wrap: pretty;
+}
+
+/* Line height needs to be 1.5x to 2.0x of the font size */
+* {
+    line-height: 165%;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    line-height: 125%;
+}
+
+/* Controls must have a minimum height of 48px */
+a.btn, button, input {
+    /* Prevents accidental double-tap zoom */
+    touch-action: manipulation;
+
+    --controls-side: 3rem;
+    height: var(--controls-side);
+    min-width: var(--controls-side);
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+a.btn, button {
+    justify-content: center;
+}
+
+/* Focus ring */
+:focus-visible {
+    outline: 0.25rem solid;
+    outline-offset: 0.125rem;
+}
+
+/* Hides the ring for mouse clicks but always shows it for keyboards */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Cursor behaviors */
+a, button, label, summary, 
+input[type="button"], input[type="submit"], input[type="reset"], 
+input[type="checkbox"], input[type="radio"], 
+input[type="file"], input[type="color"], input[type="image"], input[type="range"] {
+    /* Pointer for clickable elements */
+    cursor: pointer;
+}
+
+:disabled, [aria-disabled="true"] {
+    cursor: not-allowed;
+}
+
+/* Dyslexia mode */
+.dyslexia * {
+    letter-spacing: 0.15rem;
+    word-spacing: 0.2rem;
+    line-height: 200%;
+}
+
+/* Skip navigation links */
+.skip:not(:focus) {
+    /* Hidden by default, visible on focus */
+    visibility: hidden;
+}
+
+/* Wrap tables for horizontal scroll */
+.table-responsive {
+    overflow-x: auto;
+    /* iOS momentum scroll */
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* Windows High Contrast mode */
+@media (forced-colors: active) {
+    * {
+        forced-color-adjust: auto;
+    }
+}
+
+/* Fallbacks for fonts */
+:root {
+    --sans-serif-fallback: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Arial', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica', sans-serif;
+    
+    --serif-fallback: 'Georgia', 'Times New Roman', 'Times', serif;
+
+    --mono-fallback: 'ui-monospace', 'SFMono-Regular', 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
