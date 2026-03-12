@@ -6,25 +6,22 @@ This is the repository that hosts all files for IDM T380 - Scripting for Accessi
 
 ### Final
 
-- Home-Index Page: []()
-- Case Study: []()
+- Home-index Page: [Home](https://idmt380-24335-tc3363.netlify.app/final)
+- Case Study: [Self-hosted Page](https://idmt380-24335-tc3363.netlify.app/case_study)
 - GitHub Repo: [GitHub](https://github.com/TomChen1435/idmt380-24335-tc3363)
 
 ### Homework 4
 
-- Optimized Page: []()
-- List of New Features: []()
+- Optimized Page: [Form](https://idmt380-24335-tc3363.netlify.app/homework4)
 
 ### Homework 3
 
-- Optimized Page: []()
-- List of New Features: []()
+- Optimized Page: [Optimized v2](https://idmt380-24335-tc3363.netlify.app/homework3)
 
 ### Homework 2
 
+- Optimized Page: [Optimized v1](https://idmt380-24335-tc3363.netlify.app/homework2)
 - Original Page: [Project Gutenberg](https://www.gutenberg.org/files/11/11-h/11-h.htm)
-- Optimized Page: []()
-- List of New Features: []()
 
 ### Homework 1
 
