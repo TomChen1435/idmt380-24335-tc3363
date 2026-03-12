@@ -1,0 +1,211 @@
+:root {
+    --gap-structure: 1.25rem;
+    --gap-border: 0.75rem;
+    --gap-row: 0.5rem;
+    --gap-field: 0.25rem;
+    --border-width: calc(3 / 16 * 1rem);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --neutral: white;
+        --neutral-reverse: black;
+
+        --background: var(--green-10);
+        --alert-color: var(--magenta-80);
+        --placeholder: var(--gray-80);
+        --focus-ring-color: var(--purple-80);
+        --interactive-normal: var(--green-80);
+        --interactive-hover: var(--green-90);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --neutral: black;
+        --neutral-reverse: white;
+
+        --background: var(--green-100);
+        --alert-color: var(--magenta-30);
+        --placeholder: var(--gray-30);
+        --focus-ring-color: var(--purple-30);
+        --interactive-normal: var(--green-30);
+        --interactive-hover: var(--green-20);
+    }
+}
+
+/* Color for alert and error information */
+.critical {
+    color: var(--alert-color);
+    stroke: var(--alert-color);
+}
+
+::placeholder {
+    color: var(--placeholder);
+    opacity: 100%;
+}
+
+body {
+    background-color: var(--background);
+    padding: var(--gap-structure);
+}
+
+* {
+    color: var(--neutral-reverse);
+}
+
+/* Form structures */
+
+form {
+    display: grid;
+    gap: var(--gap-structure);
+    grid-auto-rows: min-content;
+}
+
+@media (width < 480px) {
+    form {
+        grid-template-columns: 1fr;
+        grid-template-areas: "title" "first-name" "last-name" "email" "message" "clear-btn" "submit-btn";
+    }
+}
+
+@media (480px <= width) {
+    form {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "title title"
+        "first-name last-name"
+        "email email"
+        "message message"
+        "clear-btn submit-btn";
+    }
+}
+
+/* Title */
+
+h1 {
+    text-align: center;
+}
+
+@media (width < 744px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (744px <= width) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Form elements */
+
+.form-field {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--gap-field);
+    height: fit-content;
+    width: 100%;
+}
+
+label, .error-message {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 var(--gap-border);
+}
+
+input, textarea, button {
+    border-radius: var(--gap-border);
+    font-size: 1.125rem;
+    padding: var(--gap-row) var(--gap-border);
+    width: 100%;
+}
+
+input, textarea {
+    background: none;
+    border: var(--border-width) solid var(--neutral-reverse);
+}
+
+input:focus, textarea:focus {
+    background-color: var(--neutral);
+    border-color: var(--interactive-hover); 
+}
+
+input:focus, textarea:focus, button:hover, button:focus {
+    outline: var(--border-width) solid var(--focus-ring-color);
+}
+
+button {
+    gap: var(--gap-row);  
+
+    --btn-svg-side: 1.25rem;
+
+    svg {
+        height: var(--btn-svg-side);
+        stroke-width: 2.5;
+        width: var(--btn-svg-side);
+    }
+
+    p {
+        font-size: var(--btn-svg-side);
+        font-weight: 650;
+    }
+}
+
+button#clear {
+    background: none;
+    border: var(--border-width) solid var(--interactive-normal);
+
+    svg {stroke: var(--interactive-normal);}
+    p {color: var(--interactive-normal);}
+}
+
+button#clear:hover, button#clear:focus {
+    background-color: var(--neutral);
+
+    svg {stroke: var(--interactive-hover);}
+    p {color: var(--interactive-hover);}
+}
+
+button#submit {
+    background-color: var(--interactive-normal);
+    border: none;
+
+    svg {stroke: var(--neutral);}
+    p {color: var(--neutral);}
+}
+
+button#submit:hover, button#submit:focus {
+    background-color: var(--interactive-hover);
+}
+
+/* Error message */
+
+@media (width < 375px) {
+    .error-message > svg {
+        --svg-side: 1.25rem;
+    }
+
+    .error-message > p {
+        font-size: calc(15 / 16 * 1rem);
+    }
+}
+
+@media (375px <= width) {
+    .error-message > svg {
+        --svg-side: 1.5rem;
+    }
+}
+
+.error-message {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--gap-row);  
+    
+    svg {
+        height: var(--svg-side);
+        width: var(--svg-side);
+    }
+}
