@@ -1,6 +1,22 @@
 /* Typography */
+@font-face {
+    font-family: 'Open Sans';
+    src:
+        local('Open Sans'),
+        url("/css/OpenSans.ttf") format("truetype");
+}
+
 * {
     font-family: 'Open Sans', var(--sans-serif-fallback);
+}
+
+/* Single column designs for all pages */
+body {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    
+    justify-content: center;
 }
 
 /* Normalize lists */
@@ -20,5 +36,5 @@ li {
     }
 
     a {transition-property: color;}
-    a.link, a.visited {transition-property: transform;}
+    a.link {transition-property: transform;}
 }

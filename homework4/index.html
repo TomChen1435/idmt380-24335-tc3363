@@ -5,13 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
 
-    <link rel="stylesheet" href="/media/reset.css">
-    <link rel="stylesheet" href="/media/colors/ibm_design_language.css">
-    <link rel="stylesheet" href="/media/basics.css">
+    <link rel="icon" href="/favicon.ico">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/colors/ibm_design_language.css">
+    <link rel="stylesheet" href="/css/basics.css">
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <script src="./preload.js"></script>
+    <script>
+        // Error message information
+        const errorData = {
+            first_name: {
+                id: "first-name-error",
+                message: "At least leave your first initial."
+            },
+            last_name: {
+                id: "last-name-error",
+                message: "At least leave your last initial."
+            },
+            email: {
+                id: "email-error",
+                message: "Please enter a valid email address."
+            },
+            message: {
+                id: "message-error",
+                message: "The message cannot be blank."
+            }
+        };
+
+        // Add error messages to the DOM
+        function addErrorMessage(field, input, errorInfo) {
+            // If there is no error message, add one
+            if (!field.querySelector('.error-message')) {
+                // Create an invisible grouping tag
+                const errorContainer = document.createElement('div');
+                errorContainer.classList.add('error-message');
+                
+                // Create the paragraph element that holds the error message
+                const errorMessage = document.createElement('p');
+                errorMessage.setAttribute('role', 'alert');
+                errorMessage.setAttribute('id', errorInfo.id);
+                errorMessage.classList.add('critical');
+                errorMessage.textContent = errorInfo.message;
+
+                // Add the error icon to the grouping tag
+                const errorIconCopy = errorIconTemplate.content.cloneNode(true);
+                errorContainer.appendChild(errorIconCopy);
+
+                // Add the error message to the grouping tag
+                errorContainer.appendChild(errorMessage);
+
+                // Add the completed grouping tag to the DOM
+                field.appendChild(errorContainer);
+
+                // Update aria attributes for the input field
+                input.setAttribute('aria-describedby', errorMessage.id);
+                input.setAttribute('aria-invalid', 'true');
+            }
+        }
+
+        // Remove error messages from the DOM
+        function removeErrorMessage(field, input) {
+            // Find the error message grouping tag
+            const errorContainer = field.querySelector('.error-message');
+
+            // If the error message exists, then remove it
+            if (errorContainer) {
+                errorContainer.remove();
+
+                // Update aria attributes for the input field
+                input.removeAttribute('aria-invalid');
+                input.removeAttribute('aria-describedby');
+            }
+        }
+    </script>
 
     <h1>Contact Tom</h1>
 
@@ -74,13 +142,12 @@
             </script>
         </div>
 
-        <button onclick="location.reload()" 
-            id="clear" 
-            style="grid-area: clear-btn;">
+        <button onclick="location.reload()"
+            id="clear" style="grid-area: clear-btn;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg> 
             <p>Clear</p>
         </button>
-        <button onclick="location.reload()" type="submit" form="contact-form"
+        <button type="submit" form="contact-form"
             id="submit" style="grid-area: submit-btn;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
             <p>Submit</p>
@@ -94,6 +161,40 @@
         const errorIconTemplate = document.getElementById('lucide-circle-alert');
     </script>
 
-    <script src="./postload.js"></script>
+    <script>
+        // Apply updates to the DOM
+
+        firstNameInput.addEventListener('blur', function() {
+            if (this.value.length === 0) {
+                addErrorMessage(firstNameField, this, errorData.first_name);
+            } else {
+                removeErrorMessage(firstNameField, this);
+            }
+        });
+
+        lastNameInput.addEventListener('blur', function() {
+            if (this.value.length === 0) {
+                addErrorMessage(lastNameField, this, errorData.last_name);
+            } else {
+                removeErrorMessage(lastNameField, this);
+            }
+        });
+
+        emailInput.addEventListener('blur', function() {
+            if (this.value.length === 0 || this.validity.typeMismatch) {
+                addErrorMessage(emailField, this, errorData.email);
+            } else {
+                removeErrorMessage(emailField, this);
+            }
+        });
+
+        messageInput.addEventListener('blur', function() {
+            if (this.value.length === 0) {
+                addErrorMessage(messageField, this, errorData.message);
+            } else {
+                removeErrorMessage(messageField, this);
+            }
+        });
+    </script>
 </body>
 </html>

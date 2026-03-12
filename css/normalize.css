@@ -69,7 +69,7 @@ a.btn, button, input {
     touch-action: manipulation;
 
     --controls-side: 3rem;
-    height: var(--controls-side);
+    min-height: var(--controls-side);
     min-width: var(--controls-side);
 
     display: flex;
@@ -149,4 +149,15 @@ input[type="file"], input[type="color"], input[type="image"], input[type="range"
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+/* Body needs to fill all available space */
+html, body {
+    min-height: 100dvh;
+    width: max(320px, 100vw);
+}
+
+/* Prevent SVGs from being stretched */
+svg {
+    flex-shrink: 0;
 }
