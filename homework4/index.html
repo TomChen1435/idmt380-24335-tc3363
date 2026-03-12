@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+
+    <link rel="stylesheet" href="/media/reset.css">
+    <link rel="stylesheet" href="/media/colors/ibm_design_language.css">
+    <link rel="stylesheet" href="/media/basics.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <script src="./preload.js"></script>
+
+    <h1>Contact Tom</h1>
+
+    <form id="contact-form">
+        <div class="form-field first-name" style="grid-area: first-name;">
+            <label for="first-name">
+                First Name
+                <span aria-label="required" class="critical">*</span>
+            </label>
+            <input form="contact-form" type="text" required 
+                id="first-name" placeholder="ex. Jordan">
+
+            <script>
+                const firstNameField = document.querySelector('.form-field.first-name');
+                const firstNameInput = document.getElementById('first-name');
+            </script>
+        </div>
+
+        <div class="form-field last-name" style="grid-area: last-name;">
+            <label for="last-name">
+                Last Name
+                <span aria-label="required" class="critical">*</span>
+            </label>
+            <input form="contact-form" type="text" required 
+                id="last-name" placeholder="ex. Doe">
+
+            <script>
+                const lastNameField = document.querySelector('.form-field.last-name');
+                const lastNameInput = document.getElementById('last-name');
+            </script>
+        </div>
+
+        <div class="form-field email" style="grid-area: email;">
+            <label for="email">
+                Email Address
+                <span aria-label="required" class="critical">*</span>
+            </label>
+            <input form="contact-form" type="email" required 
+                id="email" placeholder="address@example.com">
+                
+            <script>
+                const emailField = document.querySelector('.form-field.email');
+                const emailInput = document.getElementById('email');
+            </script>
+        </div>
+
+        <div class="form-field message" style="grid-area: message;">
+            <label for="message">
+                Leave a Message for Tom
+                <span aria-label="required" class="critical">*</span>
+            </label>
+            <textarea form="contact-form" required 
+                id="message" 
+                placeholder="Is there anything you want me to know?"
+                rows="4" cols="60"></textarea>
+                
+            <script>
+                const messageField = document.querySelector('.form-field.message');
+                const messageInput = document.getElementById('message');
+            </script>
+        </div>
+
+        <button onclick="location.reload()" 
+            id="clear" 
+            style="grid-area: clear-btn;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg> 
+            <p>Clear</p>
+        </button>
+        <button onclick="location.reload()" type="submit" form="contact-form"
+            id="submit" style="grid-area: submit-btn;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+            <p>Submit</p>
+        </button>
+    </form>
+
+    <template id="lucide-circle-alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-alert-icon lucide-circle-alert critical" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+    </template>
+    <script>
+        const errorIconTemplate = document.getElementById('lucide-circle-alert');
+    </script>
+
+    <script src="./postload.js"></script>
+</body>
+</html>

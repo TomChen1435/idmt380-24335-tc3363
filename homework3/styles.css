@@ -1,0 +1,213 @@
+/* Variables */
+:root {
+    --gap-1: 0.75rem;
+    --gap-2: 1.25rem;
+    --gap-3: 2.5rem;
+    --btn-ht: 3rem;
+}
+
+@media (width < 28rem) {
+    :root {
+        --gap-side: 1rem;
+    }
+}
+
+@media (28rem <= width < 744px) {
+    :root {
+        --gap-side: 2rem;
+    }
+}
+
+@media (744px <= width) {
+    :root {
+        --gap-side: 3rem;
+    }
+}
+
+/* Text Color */
+@media (prefers-color-scheme: light) {
+    * {
+        color: var(--gray-100);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    * {
+        color: var(--gray-10);
+    }
+}
+
+/* Font Size */
+@media (width < 744px) {
+    h1, header > a.project > p {
+        font-size: clamp(1.75rem, 8.75vw, 2rem);
+    }
+
+    h2, h3 {
+        font-size: clamp(1.5rem, 7.5vw, 1.75rem);
+    }
+
+    p {
+        font-size: clamp(1rem, 5vw, 1.25rem);
+    }
+}
+
+@media (744px <= width < 1024px) {
+    h1, header > a.project > p {
+        font-size: clamp(2.25rem, 4.75vw, 2.5rem);
+    }
+
+    h2, h3 {
+        font-size: clamp(1.75rem, 3.65vw, 2rem);
+    }
+
+    p {
+        font-size: clamp(1.25rem, 2.65vw, 1.375rem);
+    }
+}
+
+@media (1024px <= width) {
+    h1 {
+        font-size: clamp(3rem, 4.65vw, 3.5rem);
+    }
+
+    header > a.project > p {
+        font-size: 2.5rem;
+    }
+
+    h2, h3 {
+        font-size: clamp(2.5rem, 3.85vw, 3rem);
+    }
+
+    p {
+        font-size: clamp(1.375rem, 2.1vw, 1.5rem);
+    }
+}
+
+/* Font Weight */
+article > h2 {
+    font-weight: 400;
+}
+
+/* Body */
+body {
+    align-items: center;
+    background-color: var(--gray-1);
+    display: flex;
+    flex-flow: column nowrap;
+    /* gap: var(--gap-2); */
+    padding-bottom: var(--gap-2);
+}
+
+/* Header */
+header {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: var(--gap-2) var(--gap-side);
+    width: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+    header {
+        background: var(--gray-100);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    header {
+        background: var(--gray-10);
+    }
+}
+
+header > a.project {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--gap-2);
+    text-decoration: none;
+}
+
+img.icon {
+    border-radius: var(--gap-2);
+    height: var(--btn-ht);
+}
+
+header > a.project > p {
+    color: var(--gray-1);
+    font-weight: 650;
+    text-transform: uppercase;
+}
+
+@media (width < 28rem) {
+    header > a.project > p.nowrap {
+        display: none;
+    }
+}
+
+@media (450px <= width) {
+    header > a.project > p.wrap {
+        display: none;
+    }
+}
+
+/* Sections */
+section.metadata, aside, main {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+section.metadata, aside {
+    margin: var(--gap-2) var(--gap-side);
+}
+
+/* Metadata */
+section.metadata {
+    gap: var(--gap-1);
+}
+
+section.metadata > * {
+    text-align: center;
+}
+
+/* Image */
+picture.cover, picture.cover * {
+    max-height: 75dvh;
+    width: min(100%, 28rem);
+}
+
+picture.cover * {
+    object-fit: contain;
+}
+
+/* Menu */
+ul#menu > h2 {
+    text-align: center;
+}
+
+ul#menu > li {
+    min-height: var(--btn-ht);
+    padding: var(--gap-1) 0;
+}
+
+/* Divider */
+hr {
+    background-color: var(--gray-5);
+    border: none;
+    height: var(--gap-1);
+    width: 100%;
+}
+
+/* Main */
+main {
+    margin: 0 var(--gap-side);
+}
+
+main > article {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--gap-1);
+    margin: var(--gap-2) 0;
+}
