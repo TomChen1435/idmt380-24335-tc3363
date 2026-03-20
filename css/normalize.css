@@ -1,3 +1,7 @@
+:root {
+    --controls-side: 3rem;
+}
+
 /* Use a more-intuitive box-sizing model */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -42,9 +46,9 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* Body text needs to be: */
-p {
+p, li::marker {
     /* At least 16px */
-    font-size: 1.125rem;
+    font-size: clamp(1.125rem, 5.65vw, 1.5rem);
     /* Within 45-75 characters long per line */
     max-width: 65ch;
 
@@ -68,7 +72,6 @@ a.btn, button, input {
     /* Prevents accidental double-tap zoom */
     touch-action: manipulation;
 
-    --controls-side: 3rem;
     min-height: var(--controls-side);
     min-width: var(--controls-side);
 

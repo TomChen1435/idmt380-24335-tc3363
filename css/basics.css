@@ -10,22 +10,13 @@
     font-family: 'Open Sans', var(--sans-serif-fallback);
 }
 
-/* Single column designs for all pages */
-body {
-    align-items: center;
-    display: flex;
-    flex-flow: column nowrap;
-    
-    justify-content: center;
-}
-
-/* Normalize lists */
-ul {
-    padding-left: 0;
-}
-
-li {
-    margin-left: 1.25rem;
+/* Common variables */
+:root {
+    --gap-structure: 1.25rem;
+    --gap-border: 0.75rem;
+    --gap-row: 0.5rem;
+    --gap-field: 0.25rem;
+    --border-width: calc(3 / 16 * 1rem);
 }
 
 /* Animations & transitions */
@@ -36,5 +27,68 @@ li {
     }
 
     a {transition-property: color;}
-    a.link {transition-property: transform;}
 }
+
+/* Color scheme */
+@media (prefers-color-scheme: light) {
+    :root {
+        --neutral: white;
+        --neutral-reverse: black;
+
+        --background: var(--green-10);
+        --normal-text: var(--gray-100);
+        --alert-color: var(--magenta-80);
+        --placeholder: var(--gray-80);
+
+        --focus-ring-color: var(--purple-80);
+        --interactive-normal: var(--green-80);
+        --interactive-hover: var(--green-90);
+
+        --link-normal: var(--blue-80);
+        --link-visited: var(--magenta-80);
+        --link-hover: var(--purple-80);
+        --link-active: var(--red-80);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --neutral: black;
+        --neutral-reverse: white;
+
+        --background: var(--green-100);
+        --normal-text: var(--gray-10);
+        --alert-color: var(--magenta-30);
+        --placeholder: var(--gray-30);
+        
+        --focus-ring-color: var(--purple-30);
+        --interactive-normal: var(--green-30);
+        --interactive-hover: var(--green-20);
+
+        --link-normal: var(--blue-30);
+        --link-visited: var(--magenta-30);
+        --link-hover: var(--purple-30);
+        --link-active: var(--red-30);
+    }
+}
+
+body {
+    background-color: var(--background);
+}
+
+* {
+    color: var(--normal-text);
+}
+
+/* Single column designs for all pages */
+body {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+a.link:link {color: var(--link-normal);}
+a.link:visited {color: var(--link-visited);}
+a.link:hover {color: var(--link-hover);}
+a.link:active {color: var(--link-active);}
