@@ -1,37 +1,41 @@
-:root {
-    --gap-structure: 1.25rem;
-    --gap-border: 0.75rem;
-    --gap-row: 0.5rem;
-    --gap-field: 0.25rem;
-    --border-width: calc(3 / 16 * 1rem);
+/* Header */
+
+header {
+    align-items: center;
+    background-color: var(--normal-text);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: var(--gap-row);
+    width: 100%;
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        --neutral: white;
-        --neutral-reverse: black;
-
-        --background: var(--green-10);
-        --alert-color: var(--magenta-80);
-        --placeholder: var(--gray-80);
-        --focus-ring-color: var(--purple-80);
-        --interactive-normal: var(--green-80);
-        --interactive-hover: var(--green-90);
-    }
+header > .home {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--gap-border);
+    justify-content: center;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --neutral: black;
-        --neutral-reverse: white;
+header > .home > .icon {
+    border-radius: var(--gap-border);
+    height: var(--controls-side);
+    width: var(--controls-side);
+}
 
-        --background: var(--green-100);
-        --alert-color: var(--magenta-30);
-        --placeholder: var(--gray-30);
-        --focus-ring-color: var(--purple-30);
-        --interactive-normal: var(--green-30);
-        --interactive-hover: var(--green-20);
-    }
+header > .home > p {
+    color: var(--neutral);
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    font-weight: 600;
+}
+
+@media (width < 375px) {
+    header > .home > p.wide {display: none;}
+}
+
+@media (width >= 375px) {
+    header > .home > p.narrow {display: none;}
 }
 
 /* Color for alert and error information */
@@ -45,13 +49,8 @@
     opacity: 100%;
 }
 
-body {
-    background-color: var(--background);
+main {
     padding: var(--gap-structure);
-}
-
-* {
-    color: var(--neutral-reverse);
 }
 
 /* Form structures */

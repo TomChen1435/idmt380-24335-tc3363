@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me</title>
+    <title>Contact Us</title>
 
     <link rel="icon" href="/favicon.ico">
 
@@ -81,7 +81,17 @@
         }
     </script>
 
-    <h1>Contact Tom</h1>
+    <header>
+        <a href="https://www.gutenberg.org/" target="_blank" class="home">
+            <img src="/images/logo.svg" alt="The Project Gutenberg logo, featuring the name 'Project Gutenberg' in a serif font, framed by two stylized, red-and-blue open book outlines that create a circular border." class="icon">
+            <p class="wide">Project Gutenberg</p>
+            <p class="narrow">Project<br>Gutenberg</p>
+        </a>
+    </header>
+
+    <main>
+
+    <h1>Contact Us</h1>
 
     <form id="contact-form">
         <div class="form-field first-name" style="grid-area: first-name;">
@@ -128,7 +138,7 @@
 
         <div class="form-field message" style="grid-area: message;">
             <label for="message">
-                Leave a Message for Tom
+                Leave a Message for Us
                 <span aria-label="required" class="critical">*</span>
             </label>
             <textarea form="contact-form" required 
@@ -153,6 +163,8 @@
             <p>Submit</p>
         </button>
     </form>
+
+    </main>
 
     <template id="lucide-circle-alert">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-alert-icon lucide-circle-alert critical" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>

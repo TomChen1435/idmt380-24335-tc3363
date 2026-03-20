@@ -85,7 +85,8 @@ body {
     align-items: center;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    min-height: 100dvh;
+    width: 100%;
 }
 
 a.link:link {color: var(--link-normal);}
