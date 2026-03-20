@@ -18,23 +18,19 @@
         const errorData = {
             first_name: {
                 id: "first-name-error",
-                message: "At least leave your first initial.",
-                placeholder: "ex. Jordan"
+                message: "At least leave your first initial."
             },
             last_name: {
                 id: "last-name-error",
-                message: "At least leave your last initial.",
-                placeholder: "ex. Doe"
+                message: "At least leave your last initial."
             },
             email: {
                 id: "email-error",
-                message: "Please enter a valid email address.",
-                placeholder: "address@example.com"
+                message: "Please enter a valid email address."
             },
             message: {
                 id: "message-error",
-                message: "The message cannot be blank.",
-                placeholder: "Is there anything you want us to know?"
+                message: "The message cannot be blank."
             }
         };
 
@@ -84,6 +80,16 @@
             }
         }
     </script>
+
+    <header>
+        <a href="../index.html" class="home">
+            <img src="/images/logo.svg" alt="The Project Gutenberg logo, featuring the name 'Project Gutenberg' in a serif font, framed by two stylized, red-and-blue open book outlines that create a circular border." class="icon">
+            <p class="wide">Project Gutenberg</p>
+            <p class="narrow">Project<br>Gutenberg</p>
+        </a>
+    </header>
+
+    <main>
 
     <h1>Contact Us</h1>
 
@@ -158,6 +164,8 @@
         </button>
     </form>
 
+    </main>
+
     <template id="lucide-circle-alert">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-alert-icon lucide-circle-alert critical" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
     </template>
@@ -166,13 +174,8 @@
     </script>
 
     <script>
-        // Set placeholder text
-        firstNameInput.setAttribute('placeholder', errorData.first_name.placeholder);
-        lastNameInput.setAttribute('placeholder', errorData.last_name.placeholder);
-        emailInput.setAttribute('placeholder', errorData.email.placeholder);
-        messageInput.setAttribute('placeholder', errorData.message.placeholder);
-
         // Apply updates to the DOM
+
         firstNameInput.addEventListener('blur', function() {
             if (this.value.length === 0) {
                 addErrorMessage(firstNameField, this, errorData.first_name);

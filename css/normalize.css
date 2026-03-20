@@ -78,7 +78,11 @@ a.btn, button, input {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+
+    font-weight: 550;
 }
+
+a.btn {text-decoration: none;}
 
 a.btn, button {
     justify-content: center;

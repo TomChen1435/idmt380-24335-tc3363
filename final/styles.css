@@ -1,0 +1,46 @@
+main {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--gap-row);
+    justify-content: center;
+    padding: var(--gap-row) 0;
+    width: fit-content;
+}
+
+#metadata {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--gap-row);
+    justify-content: center;
+    padding: var(--gap-row);
+    width: fit-content;
+}
+
+h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    text-align: center;
+}
+
+#cover, #cover * {
+    max-width: 20rem;
+}
+
+#menu {
+    list-style-type: decimal;
+    margin-left: 1.75rem;
+    padding: var(--gap-row);
+    text-align: center;
+    width: fit-content;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 7.5vw, 2rem);
+}
+
+#menu > li {
+    height: var(--controls-side);
+    line-height: var(--controls-side);
+    width: fit-content;
+}

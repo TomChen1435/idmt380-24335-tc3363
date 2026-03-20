@@ -93,3 +93,62 @@ a.link:link {color: var(--link-normal);}
 a.link:visited {color: var(--link-visited);}
 a.link:hover {color: var(--link-hover);}
 a.link:active {color: var(--link-active);}
+
+.btn {
+    background-color: var(--interactive-normal);
+    border-radius: var(--gap-border);
+    gap: var(--gap-row);
+    margin-top: 1rem;
+    padding: var(--gap-row) 1rem;
+}
+
+.btn > svg {
+    stroke: var(--neutral);
+}
+
+.btn > p {
+    color: var(--neutral);
+}
+
+.btn:hover {
+    background-color: var(--interactive-hover);
+}
+
+header {
+    align-items: center;
+    background-color: var(--interactive-normal);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: var(--gap-row);
+    width: 100%;
+}
+
+header > .home {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--gap-border);
+    justify-content: center;
+    text-decoration: none;
+}
+
+header > .home > .icon {
+    border-radius: var(--gap-border);
+    height: var(--controls-side);
+    width: var(--controls-side);
+}
+
+header > .home > p {
+    color: var(--neutral);
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    font-weight: 600;
+}
+
+@media (width < 375px) {
+    header > .home > p.wide {display: none;}
+}
+
+@media (width >= 375px) {
+    header > .home > p.narrow {display: none;}
+}
