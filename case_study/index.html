@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study</title>
+
+    <link rel="icon" href="/favicon.ico">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/colors/ibm_design_language.css">
+    <link rel="stylesheet" href="/css/basics.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <img src="./banner.png" alt="" class="header">
+    
+    <main>
+        <h1>Case Study: Accessible Redesign of the Project Gutenberg Reader</h1>
+
+        <section>
+            <h2>Overview</h2>
+            <p>This project is a solo redesign of the Project Gutenberg reading experience — a three-page static website covering a chapter menu for Alice's Adventures in Wonderland, a reader page for Chapter 1, and a contact form. Built entirely in vanilla HTML over a 10-week academic term, it was designed from the ground up around one constraint: accessibility. The site passes WCAG color contrast standards, is fully navigable by keyboard alone, and works correctly with macOS VoiceOver. The defining lesson was that accessible design is not about adding more — it is about making sure what is already there works for everyone.</p>
+        </section>
+
+        <section>
+            <h2>The Context and Challenge</h2>
+
+            <h3>Background</h3>
+            <p>The Project Gutenberg Reader Redesign was completed as a solo class assignment over a 10-week term. It required building a three-page static site using only vanilla HTML — no frameworks, no libraries. The three pages were a chapter menu for Alice's Adventures in Wonderland, a reader page for Chapter 1, and a contact form.</p>
+
+            <h3>The Problem</h3>
+            <p>The existing Project Gutenberg reading interface presents meaningful barriers to users with disabilities. For people who rely on keyboard navigation, screen readers, or who have cognitive impairments, the experience is either difficult or entirely inaccessible. This project set out to rebuild it with accessibility as the primary design constraint — not an afterthought.</p>
+            <p>Two problems were addressed in parallel: general web accessibility through correct HTML structure and assistive attributes, and cognitive accessibility through simplified layouts and reduced friction for users with mental or cognitive challenges.</p>
+
+            <h3>Goals and Objectives</h3>
+            <p>Success was defined by three concrete, testable criteria. First, all text and UI elements pass WCAG color contrast ratio standards. Second, the entire site is operable using only Tab and Shift+Tab with no mouse required. Third, the site functions correctly with assistive technologies, including macOS VoiceOver.</p>
+        </section>
+
+        <section>
+            <h2>The Process and Insight</h2>
+
+            <h3>Step 1: Learning to Analyze Accessibility</h3>
+            <p>The process started with an auditing exercise before any design work began. The New Jersey Transit website was used as a real-world case study for analyzing color palettes against contrast requirements. This built the foundational skill of evaluating accessibility from an existing interface rather than designing in a vacuum.</p>
+
+            <h3>Step 2: Initial Prototype</h3>
+            <p>With a working understanding of accessibility constraints, the first prototype established the HTML scaffolding for all three pages. The focus here was structural — getting a navigable, functional skeleton in place before layering in accessibility work.</p>
+
+            <h3>Step 3: Semantic and ARIA Refinement</h3>
+            <p>The prototype was then rebuilt with proper semantic HTML, replacing generic div and span elements with meaningful tags like nav, main, article, section, header, and footer. ARIA attributes were added throughout — aria-label, aria-describedby, role, and others — to provide context for screen readers. Logical tab order and visible focus states were verified at every step.</p>
+
+            <h3>Step 4: Accessible Form Design</h3>
+            <p>The contact form page was treated as a dedicated accessibility exercise. Forms are a common failure point, with mislabeled inputs, absent error states, and broken focus management being widespread issues. The form was built with properly associated labels, clear field descriptions, and full keyboard-accessible submission.</p>
+
+            <h3>Step 5: Integration and Simplification</h3>
+            <p>The final stage brought the three pages together into a unified site. During development, a significant number of additional features and interactive elements were explored — and almost all of them were cut. Features added in the name of accessibility were creating additional work for users, not reducing it. The right approach is to annotate the interface for those who need it, without making the experience heavier for everyone because of the extra design.</p>
+        </section>
+
+        <section>
+            <h2>The Solution</h2>
+            <p>The finished product is a live, three-page static site built entirely in vanilla HTML. It meets all three original accessibility objectives: color contrast passes WCAG standards throughout, keyboard navigation works completely via Tab and Shift+Tab with no mouse required, and screen reader support is fully implemented via semantic markup and ARIA attributes, verified with macOS VoiceOver.</p>
+            <p>The navigation structure is flat and predictable. The reader page presents Chapter 1 of Alice's Adventures in Wonderland with no distracting UI surrounding the text. The contact form is direct, with clearly labeled fields and no unnecessary steps. Every element on every page exists because it serves the user.</p>
+        </section>
+
+        <section>
+            <h2>The Results</h2>
+            <p>The project met its stated objectives. The site navigates correctly with a keyboard, passes color contrast checks, and functions as intended with macOS VoiceOver. There is no quantitative user testing data — the project was evaluated through direct accessibility testing rather than user research metrics.</p>
+            <p>The most important lesson was a reframe of what accessible design actually means. The instinct during development was to add — more structure, more cues, more features. But the correct approach was the opposite: to add notation for those who need it, without creating extra work for users because of the design itself. Accessibility is not about doing more. It is about making sure that what is already there works for everyone.</p>
+        </section>
+
+    </main>
+</body>
+</html>
